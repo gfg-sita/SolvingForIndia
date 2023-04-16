@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Example</title>
+    <script>
+        async function createRecord() {
+            const tableName = document.getElementById("tableName").value;
+            const values = document.getElementById("values").value;
+            const response = await fetch("/database/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    tableName,
+                    values
+                })
+            });
+            const result = await response.json();
+            console.log(result);
+        }
+
+        async function readRecords() {
+            const tableName = document.getElementById("tableName").value;
+            const response = await fetch("/database/read", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    tableName: tableName
+                })
+            });
+            const result = await response.json();
+            console.log(result);
+        }
+
+        async function updateRecord() {
+            const tableName = document.getElementById("tableName").value;
+            const columnName = document.getElementById("columnName").value;
+            const oldValue = document.getElementById("oldValue").value;
+            const newValue = document.getElementById("newValue").value;
+            const response = await fetch("/database/update", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    tableName,
+                    columnName,
+                    oldValue,
+                    newValue
+                })
+            });
+            const result = await response.json();
+            console.log(result);
+        }
+
+        async function deleteRecord() {
+            const tableName = document.getElementById("tableName").value;
+            const columnName = document.getElementById("columnName").value;
+            const value = document.getElementById("value").value;
+            const response = await fetch("/database/delete", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    tableName,
+                    columnName,
+                    value
+                })
+            });
+            const result = await response.json();
+            console.log(result);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>CRUD Example</h1>
+    <div>
+        <!-- Add an input field for the table name -->
+        <label for="tableName">Table Name:</label>
+        <input type="text" id="tableName" name="tableName" />
+        <!-- Update the onclick event handler to pass the table name -->
+        <button onclick="readRecords(document.getElementById('tableName').value)">Read Records</button>
+    </div>
+    <div>
+        <label for="values">Values (comma-separated):</label>
+        <input type="text" id="values" />
+    </div>
+    <button onclick="createRecord()">Create Record</button>
+    <button onclick="readRecords()">Read Records</button>
+    <div>
+        <label for="columnName">Column Name:</label>
+        <input type="text" id="columnName" />
+    </div>
+    <div>
+        <label for="oldValue">Old Value:</label>
+        <input type="text" id="oldValue" />
+    </div>
+    <div>
+        <label for="newValue">New Value:</label>
+        <input type="text" id="newValue" />
+    </div>
+    <button onclick="updateRecord()">Update Record</button>
+    <div>
+        <label for="value">Value:</label>
+        <input type="text" id="value" />
+    </div>
+    <button onclick="deleteRecord()">Delete Record</button>
+</body>
+
+</html>
