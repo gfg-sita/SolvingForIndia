@@ -9,7 +9,6 @@ async function extractNutrientValues(receivedData) {
       potassium: latestRecord.potassium,
     };
   }
-  console.log(nutrientsData);
   return nutrientsData;
 }
 
