@@ -10,7 +10,7 @@ async function gptRecommendation (prompt_request) {
 const completion = await openai.createCompletion({
   model: "text-davinci-003",
   prompt: prompt_request,
-  max_tokens: 150
+  max_tokens: 170
 });
 const reply = completion.data.choices[0].text;
 return reply;

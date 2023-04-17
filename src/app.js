@@ -9,6 +9,7 @@ const orderRoutes = require('./routes/orderRoutes');
 const sensorRoutes = require('./routes/sensorRoutes');
 const recommendRoutes = require('./routes/recommendRoutes');
 const  gptRoutes  = require('./routes/gptRoute')
+const  satelliteRoutes = require('./routes/satelliteRoutes')
 
 //const modRewrite = require('connect-modrewrite');
 
@@ -28,6 +29,7 @@ app.use('/orders', orderRoutes);
 app.use('/sensor', sensorRoutes);
 app.use('/recommend', recommendRoutes);
 app.use('/sustain', gptRoutes);
+app.use('/satellite', satelliteRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

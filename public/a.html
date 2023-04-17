@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        html {
+            overflow-x: hidden;
+        }
+
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .totalcontainer {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+
+        }
+
+        .container1 {
+            transform: scaleX(1.11);
+            filter: blur(3px);
+        }
+
+        .container2 {
+            transform: scaleX(1.25);
+            filter: blur(3px);
+        }
+
+        .layer-1 {
+            height: 100vh;
+            width: 100%;
+            background-color: #7563db;
+            filter: blur(3px);
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.45s ease-in;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .layer-2 {
+            background: url("https://res.cloudinary.com/dkgrf00g1/image/upload/v1536453880/codepen/lay2.svg") no-repeat center center fixed;
+            animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+            filter: blur(3px);
+        }
+
+        .layer-3 {
+            background: url("https://res.cloudinary.com/dkgrf00g1/image/upload/v1536453880/codepen/lay3.svg") no-repeat center center fixed;
+            animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+        }
+
+        .layer-4 {
+            background: url("https://res.cloudinary.com/dkgrf00g1/image/upload/v1536453880/codepen/lay4.svg") no-repeat center center fixed;
+            animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+        }
+
+        .layer-5 {
+            background: url("https://res.cloudinary.com/dkgrf00g1/image/upload/v1536453880/codepen/lay5.svg") no-repeat center center fixed;
+            animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.55s both;
+        }
+
+        .layer-6 {
+            background: url("https://res.cloudinary.com/dkgrf00g1/image/upload/v1536453881/codepen/lay6.svg") no-repeat center center fixed;
+            animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.75s both;
+        }
+
+        .layer-7 {
+            background: url("https://res.cloudinary.com/dkgrf00g1/image/upload/v1536453881/codepen/lay7.svg") no-repeat center center fixed;
+            animation: slide-in-bottom 0.5s cubic-bezier(4.25, 5.46, 0.45, 0.94) 0.85s both;
+        }
+
+        .layer-8 {
+            background: url("https://res.cloudinary.com/dkgrf00g1/image/upload/v1536453882/codepen/lay8.svg") no-repeat center center fixed;
+            animation: slide-in-bottom 9.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.85s both;
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .laya-please {
+            position: absolute;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 100vh;
+            width: 100%;
+            top: 0;
+            left: 0px;
+        }
+
+        @-webkit-keyframes slide-in-bottom {
+            0% {
+                -webkit-transform: translateY(1000px);
+                transform: translateY(1000px);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-in-bottom {
+            0% {
+                -webkit-transform: translateY(1000px);
+                transform: translateY(1000px);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-in-top {
+            0% {
+                -webkit-transform: translateY(-1000px);
+                transform: translateY(-1000px);
+                opacity: 0;
+            }
+
+            100% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Custom styles */
+        :root {
+            --color-accent-green: #107e3e;
+            --color-custom-green: #4cb36c;
+            --color-custom-green-dark: #1e5741;
+            --color-custom-blue: #290750;
+            --color-custom-blue-dark: #2e3c6d;
+        }
+
+        .navbar {
+            background-color: var(--color-custom-blue);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            color: #fff;
+        }
+
+        .navbar-brand {
+            color: rgb(216, 27, 27);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+            padding: 1rem;
+            text-decoration: none;
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar-brand:hover {
+            text-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: flex-end;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin: 0;
+        }
+
+        .nav-link {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0;
+            padding: 1rem;
+            text-decoration: none;
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-link:hover {
+            background-color: var(--color-accent-green);
+            text-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        #sensordata {
+            width: 100%;
+            height: 400px;
+            margin-top: 4rem;
+            background: linear-gradient(180deg, var(--color-custom-green), var(--color-custom-green-dark));
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        #sensorData,
+        #sensorData1 {
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+            padding: 0 10px;
+            border-radius: 50px;
+            opacity: 0.9;
+        }
+
+        .graph {
+            margin-top: 100px;
+            /* Adjust the value according to your preference */
+        }
+
+        @media screen and (max-width: 768px) {
+
+            #sensorData,
+            #sensorData1 {
+                width: 100%;
+                float: none;
+                padding: 0;
+
+            }
+        }
+
+        #sensordata:hover {
+            transform: scale(1.05);
+        }
+
+       
+    body{
+  background: rgba(0,0,0,0.9);
+}
+form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 150px;
+  margin-left: -650px;
+  width: 500px;
+  height: 200px;
+  border: 4px dashed #fff;
+  background-color: #26044a;
+  opacity: 0.8;
+}
+ p{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 170px;
+  color: #fff;
+  font-family: Arial;
+}
+ input{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  
+}
+ button{
+  margin: 0;
+  color: #fff;
+  background: #6365e9;
+  border: none;
+  width: 508px;
+  height: 35px;
+  margin-top: -20px;
+  margin-left: -4px;
+  border-radius: 4px;
+  border-bottom: 4px solid #26044a;
+  transition: all .2s ease;
+  outline: none;
+}
+ button:hover{
+  background: #9266c2;
+	color: #cfb8ec;
+}
+form button:active{
+  border:0;
+}
+
+
+.recommended-crops {
+  background-color:#26044a;
+  color: #fff;
+  padding: 10px;
+  opacity: 0.9;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  height: 300px;
+  width: 400px;
+  position: fixed;
+  top: 80%;
+  right: 140px;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="totalcontainer">
+        <div class="laya-please layer-1">
+        </div>
+        <div class="laya-please layer-2">
+        </div>
+        <div class="container1">
+
+            <div class="laya-please layer-3">
+
+            </div>
+            <div class="laya-please layer-4">
+            </div>
+            <div class="laya-please layer-5">
+
+            </div>
+            <div class="laya-please layer-6">
+            </div>
+        </div>
+        <div class="container2">
+
+            <div class="laya-please layer-7">
+
+            </div>
+        </div>
+        <div class="laya-please layer-8">
+        </div>
+        <div class="laya-please form-container">
+            <!-- Navigation bar -->
+            <nav class="navbar py-4">
+                <div class="container mx-auto flex justify-between items-center">
+                    <a href="#" class="text-2xl font-bold">SITA</a>
+                    <ul class="flex">
+                        <li><a href="orders.html" class="mx-3">Create Order</a></li>
+                        <li><a href="marketplace.html" class="mx-3">MarketPlace</a></li>
+                        
+                    </ul>
+                </div>
+            </nav>
+        
+            <div id="sensorData" class="graph"></div>
+            <div id="sensorData1" class="graph"></div>
+        
+            <!-- Main content -->
+            <form action="" method="POST">
+                <input type="file" multiple>
+                <p>Drag your files here or click in this area.</p>
+                <button type="submit">Upload</button>
+              </form>
+  
+              <div class="recommended-crops">
+                Overall, the current nutrient levels in your soil are adequate for growing healthy fruits and vegetables. To further improve the soil quality, consider adding organic compost to your soil to increase nutrient content and to introduce beneficial fungi and bacteria into the soil. You can also add a layer of mulch to the soil to reduce soil compaction, retain moisture, and improve soil texture. Finally, consider planting cover crops such as clover and buckwheat to boost soil fertility.
+                <br>Recommended Crops:
+              </div>
+
+       
+    
+    
+</body>
+
+</html>
+<script>
+    const elems = document.querySelectorAll('.laya-please');
+    const layer2 = document.querySelector('.layer-2');
+    const layer3 = document.querySelector('.layer-3');
+    const layer4 = document.querySelector('.layer-4');
+    const layer5 = document.querySelector('.layer-5');
+    const layer6 = document.querySelector('.layer-6');
+    const layer7 = document.querySelector('.layer-7');
+    const layer8 = document.querySelector('.layer-8');
+
+
+    setTimeout(function () {
+        elems.forEach(function (elem, index) {
+            elem.style.animation = "none";
+        });
+    }, 1500);
+
+
+
+    document.body.addEventListener('mousemove', function (e) {
+        if (!e.currentTarget.dataset.triggered) {
+            elems.forEach(function (elem, index) {
+                if (elem.getAttribute('style')) {
+                    elem.style.transition = "all .5s";
+                    elem.style.transform = "none";
+                }
+            });
+        }
+        e.currentTarget.dataset.triggered = true;
+
+        let width = window.innerWidth / 2;
+        let mouseMoved2 = ((width - e.pageX) / 50);
+        let mouseMoved3 = ((width - e.pageX) / 40);
+        let mouseMoved4 = ((width - e.pageX) / 30);
+        let mouseMoved5 = ((width - e.pageX) / 20);
+        let mouseMoved6 = ((width - e.pageX) / 10);
+        let mouseMoved7 = ((width - e.pageX) / 5);
+
+        layer3.style.transform = "translateX(" + mouseMoved2 + "px)";
+        layer4.style.transform = "translateX(" + mouseMoved3 + "px)";
+        layer5.style.transform = "translateX(" + mouseMoved4 + "px)";
+        layer6.style.transform = "translateX(" + mouseMoved5 + "px)";
+        layer7.style.transform = "translateX(" + mouseMoved6 + "px)";
+        layer8.style.transform = "translateX(" + mouseMoved7 + "px)";
+    });
+
+    document.body.addEventListener('mouseleave', function (e) {
+        elems.forEach(function (elem, index) {
+            elem.style.transition = "all .5s";
+            elem.style.transform = "none";
+        });
+    });
+
+    document.body.addEventListener('mouseenter', function (e) {
+        elems.forEach(function (elem, index) {
+            setTimeout(function () {
+                elem.style.transition = "none";
+            }, 500);
+        });
+    });
+    const container = document.getElementById("container");
+
+    container.addEventListener("mouseover", () => {
+        document.body.style.filter = "blur(5px)";
+    });
+
+    container.addEventListener("mouseout", () => {
+        document.body.style.filter = "none";
+    });
+
+
+
+    $(document).ready(function(){
+  $('form input').change(function () {
+    $('form p').text(this.files.length + " file(s) selected");
+  });
+});
+
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="sensor.js"></script>
+<script src="sensor1.js"></script>

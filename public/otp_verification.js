@@ -23,7 +23,7 @@ document
         localStorage.setItem("jwtToken", data.token);
         alert("OTP verified successfully");
         // Redirect to the desired page, e.g., the dashboard or main app page
-        window.location.href = "./marketplace.html";
+        window.location.href = "./a.html";
       } else {
         alert(`Error: ${data.message}`);
       }
